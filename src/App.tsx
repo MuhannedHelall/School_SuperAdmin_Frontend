@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Outlet } from "react-router";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Navbar from "./Components/Navbar/Navbar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="grid grid-cols-12 bg-gray-100 font-poppins">
+			<div className="col-span-2 sticky left-0 top-0 flex flex-col justify-between h-screen p-4 border-r shadow">
+				<Sidebar />
+			</div>
+			<div className="col-span-10 h-full min-h-screen">
+				<Navbar />
+				<Outlet />
+			</div>
+		</div>
+	);
 }
 
 export default App;
